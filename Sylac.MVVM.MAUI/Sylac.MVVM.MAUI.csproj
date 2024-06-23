@@ -22,6 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Sylac.MVVM.Abstractions\Sylac.MVVM.csproj" />
+	  <ProjectReference Include="..\Sylac.MVVM.Core\Sylac.MVVM.Core.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,12 +1,13 @@
-﻿using Sylac.MVVM.Navigation.Abstractions;
+﻿using Sylac.MVVM.Core;
+using Sylac.MVVM.Core.Navigation.Abstractions;
 
 namespace Sylac.MVVM.MAUI.Controls;
 
 public class NavigationablePage : ContentPage, INavigationablePage, IQueryAttributable
 {
-    public IViewModel ViewModel { get; }
+    public IViewModel<IViewModelParameters> ViewModel { get; private set; }
 
-    public NavigationablePage(IViewModel viewModel)
+    public NavigationablePage(IViewModel<IViewModelParameters> viewModel)
     {
         ViewModel = viewModel;
         BindingContext = viewModel;
@@ -16,10 +17,9 @@ public class NavigationablePage : ContentPage, INavigationablePage, IQueryAttrib
     public void ApplyQueryAttributes(IDictionary<string, object> query)
     {
         if (query.TryGetValue(INavigationablePage.ParametersKey, out var parameter) &&
-            ViewModel is IViewModel<IViewModelParameters> viewModelWithParams &&
             parameter is IViewModelParameters viewModelParameter)
         {
-            viewModelWithParams.Initialize(viewModelParameter);
+            ViewModel.Initialize(viewModelParameter);
         }
     }
 

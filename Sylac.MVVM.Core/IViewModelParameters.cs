@@ -1,3 +1,3 @@
-﻿namespace Sylac.MVVM;
+﻿namespace Sylac.MVVM.Core;
 
 public interface IViewModelParameters;
