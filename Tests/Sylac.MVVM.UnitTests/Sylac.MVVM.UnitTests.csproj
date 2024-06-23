@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Sylac.MVVM.Core\Sylac.MVVM.Core.csproj" />
+    <ProjectReference Include="..\..\Sylac.Mvvm.Core\Sylac.Mvvm.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

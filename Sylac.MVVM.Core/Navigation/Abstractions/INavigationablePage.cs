@@ -1,4 +1,4 @@
-﻿namespace Sylac.MVVM.Core.Navigation.Abstractions
+﻿namespace Sylac.Mvvm.Core.Navigation.Abstractions
 {
     public interface INavigationablePage
     {

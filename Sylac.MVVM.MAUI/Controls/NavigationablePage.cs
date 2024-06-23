@@ -1,7 +1,7 @@
-﻿using Sylac.MVVM.Core;
-using Sylac.MVVM.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Core;
+using Sylac.Mvvm.Core.Navigation.Abstractions;
 
-namespace Sylac.MVVM.MAUI.Controls;
+namespace Sylac.Mvvm.Maui.Controls;
 
 public class NavigationablePage : ContentPage, INavigationablePage, IQueryAttributable
 {

@@ -1,4 +1,4 @@
-﻿namespace Sylac.MVVM.Core;
+﻿namespace Sylac.Mvvm.Core;
 
 public interface IViewModel
 {

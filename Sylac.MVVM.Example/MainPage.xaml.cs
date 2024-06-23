@@ -1,6 +1,6 @@
-﻿using Sylac.MVVM.Example.ViewModels;
+﻿using Sylac.Mvvm.Example.ViewModels;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     public partial class MainPage : ContentPage
     {

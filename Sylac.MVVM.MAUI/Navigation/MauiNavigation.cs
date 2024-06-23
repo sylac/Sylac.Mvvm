@@ -1,8 +1,8 @@
-﻿using Sylac.MVVM.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Core.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Threading.Tasks;
 
-namespace Sylac.MVVM.MAUI.Navigation
+namespace Sylac.Mvvm.Maui.Navigation
 {
     public class MauiNavigation : IPlatformNavigation
     {

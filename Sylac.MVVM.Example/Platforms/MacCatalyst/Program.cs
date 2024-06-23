@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     public class Program
     {

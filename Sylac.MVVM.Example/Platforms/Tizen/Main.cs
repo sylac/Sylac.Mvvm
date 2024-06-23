@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     internal class Program : MauiApplication
     {

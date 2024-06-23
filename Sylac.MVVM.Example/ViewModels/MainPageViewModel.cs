@@ -1,9 +1,9 @@
 ﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Sylac.MVVM.Core.Navigation.Abstractions;
+using Sylac.Mvvm.Core.Navigation.Abstractions;
 using System.Reactive;
 
-namespace Sylac.MVVM.Example.ViewModels
+namespace Sylac.Mvvm.Example.ViewModels
 {
     public sealed class MainPageViewModel : ReactiveObject
     {

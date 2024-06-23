@@ -1,8 +1,8 @@
-using Sylac.MVVM.Core.Navigation;
-using Sylac.MVVM.Example.ViewModels;
-using Sylac.MVVM.MAUI.Controls;
+using Sylac.Mvvm.Core.Navigation;
+using Sylac.Mvvm.Example.ViewModels;
+using Sylac.Mvvm.Maui.Controls;
 
-namespace Sylac.MVVM.Example;
+namespace Sylac.Mvvm.Example;
 
 [ConnectWithViewModel<ExamplePageViewModel, ExamplePageViewModelParameters>]
 public partial class ExamplePage : NavigationablePage

@@ -1,7 +1,7 @@
 ﻿using ReactiveUI.Fody.Helpers;
-using Sylac.MVVM.Core;
+using Sylac.Mvvm.Core;
 
-namespace Sylac.MVVM.Example.ViewModels
+namespace Sylac.Mvvm.Example.ViewModels
 {
     /// <summary>
     /// The parameters required to initialize the <see cref="ExamplePageViewModel"/>.

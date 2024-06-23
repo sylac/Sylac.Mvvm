@@ -2,16 +2,16 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Text;
-using Sylac.MVVM.Generators.Diagnostics;
+using Sylac.Mvvm.Generators.Diagnostics;
 using System.Collections.Immutable;
 using System.Text;
 
-namespace Sylac.MVVM.Generators.ViewModelRegistration;
+namespace Sylac.Mvvm.Generators.ViewModelRegistration;
 
 [Generator(LanguageNames.CSharp)]
 public class RegisterNavigationablePageGenerator : IIncrementalGenerator
 {
-    private const string BASE_LIB_NAMESPACE = "Sylac.MVVM.Core";
+    private const string BASE_LIB_NAMESPACE = "Sylac.Mvvm.Core";
     private const string CONNECT_WITH_VM_ATTRIBUTE = $"{BASE_LIB_NAMESPACE}.Navigation.ConnectWithViewModelAttribute`2";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)

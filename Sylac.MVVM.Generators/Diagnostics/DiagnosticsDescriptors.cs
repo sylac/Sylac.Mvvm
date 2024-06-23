@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Sylac.MVVM.Generators.Diagnostics
+namespace Sylac.Mvvm.Generators.Diagnostics
 {
     public static class DiagnosticsDescriptors
     {

@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     [Application]
     public class MainApplication : MauiApplication

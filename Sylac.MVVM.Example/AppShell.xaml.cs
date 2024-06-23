@@ -1,4 +1,4 @@
-﻿namespace Sylac.MVVM.Example
+﻿namespace Sylac.Mvvm.Example
 {
     public partial class AppShell : Shell
     {

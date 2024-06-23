@@ -1,6 +1,6 @@
-﻿using Sylac.MVVM.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Core.Navigation.Abstractions;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     public partial class App : Application
     {

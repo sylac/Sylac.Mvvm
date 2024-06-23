@@ -20,13 +20,13 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Install dependencies
-        run: dotnet restore Sylac.MVVM.Example/Sylac.MVVM.Example.sln
+        run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release Sylac.MVVM.Example/Sylac.MVVM.Example.sln
+        run: dotnet build --configuration Release
 
       - name: Test
-        run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=TestResults.trx"  Release Sylac.MVVM.Example/Sylac.MVVM.Example.sln
+        run: dotnet test --no-build --verbosity normal --logger "trx;LogFileName=TestResults.trx"
 
       - name: Publish Test Results
         if: always()

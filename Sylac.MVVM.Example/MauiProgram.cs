@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using Sylac.MVVM.Example.ViewModels;
-using Sylac.MVVM.MAUI;
+using Sylac.Mvvm.Example.ViewModels;
+using Sylac.Mvvm.Maui;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     public static class MauiProgram
     {
@@ -18,7 +18,7 @@ namespace Sylac.MVVM.Example
                 });
 
             builder.Services
-                .UseSylacMAUI()
+                .UseSylacMaui()
                 .RegisterViews();
 
 #if DEBUG

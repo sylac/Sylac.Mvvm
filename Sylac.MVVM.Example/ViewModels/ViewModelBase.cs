@@ -1,7 +1,7 @@
 ﻿using ReactiveUI;
-using Sylac.MVVM.Core;
+using Sylac.Mvvm.Core;
 
-namespace Sylac.MVVM.Example.ViewModels
+namespace Sylac.Mvvm.Example.ViewModels
 {
     public abstract class ViewModelBase<TViewModelParameters> : ReactiveObject, IViewModel<TViewModelParameters>
         where TViewModelParameters : IViewModelParameters

@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Sylac.MVVM.Example
+namespace Sylac.Mvvm.Example
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

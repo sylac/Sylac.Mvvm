@@ -1,12 +1,12 @@
 using NSubstitute;
-using Sylac.MVVM.Core;
-using Sylac.MVVM.Core.Navigation;
-using Sylac.MVVM.Core.Navigation.Abstractions;
+using Sylac.Mvvm.Core;
+using Sylac.Mvvm.Core.Navigation;
+using Sylac.Mvvm.Core.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 
-namespace Sylac.MVVM.UnitTests
+namespace Sylac.Mvvm.UnitTests
 {
     public class NavigationServiceTests
     {

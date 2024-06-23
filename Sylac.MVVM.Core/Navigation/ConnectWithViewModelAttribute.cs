@@ -1,4 +1,4 @@
-﻿namespace Sylac.MVVM.Core.Navigation
+﻿namespace Sylac.Mvvm.Core.Navigation
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
     public sealed class ConnectWithViewModelAttribute<TViewModel, TParams>() : Attribute

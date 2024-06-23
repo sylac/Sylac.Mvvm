@@ -1,8 +1,8 @@
-﻿using Sylac.MVVM.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Core.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Linq;
 
-namespace Sylac.MVVM.Core.Navigation;
+namespace Sylac.Mvvm.Core.Navigation;
 
 public class NavigationService(IPlatformNavigation platformNavigation) : INavigationService
 {

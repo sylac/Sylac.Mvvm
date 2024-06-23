@@ -1,12 +1,12 @@
-﻿using Sylac.MVVM.Core.Navigation;
-using Sylac.MVVM.Core.Navigation.Abstractions;
-using Sylac.MVVM.MAUI.Navigation;
+﻿using Sylac.Mvvm.Core.Navigation;
+using Sylac.Mvvm.Core.Navigation.Abstractions;
+using Sylac.Mvvm.Maui.Navigation;
 
-namespace Sylac.MVVM.MAUI;
+namespace Sylac.Mvvm.Maui;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection UseSylacMAUI(this IServiceCollection services)
+    public static IServiceCollection UseSylacMaui(this IServiceCollection services)
     {
         return services
             .AddTransient<IPlatformNavigation, MauiNavigation>()
