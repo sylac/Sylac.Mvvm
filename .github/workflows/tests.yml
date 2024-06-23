@@ -20,7 +20,7 @@ jobs:
           dotnet-version: "8.0.x"
 
       - name: Install dependencies
-        run: dotnet restore
+        run: dotnet restore Sylac.MVVM.Example/Sylac.MVVM.Example.sln
 
       - name: Build
         run: dotnet build --configuration Release Sylac.MVVM.Example/Sylac.MVVM.Example.sln
