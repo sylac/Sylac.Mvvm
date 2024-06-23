@@ -11,7 +11,7 @@ namespace Sylac.MVVM.Generators.ViewModelRegistration;
 [Generator(LanguageNames.CSharp)]
 public class RegisterNavigationablePageGenerator : IIncrementalGenerator
 {
-    private const string BASE_LIB_NAMESPACE = "Sylac.MVVM";
+    private const string BASE_LIB_NAMESPACE = "Sylac.MVVM.Core";
     private const string CONNECT_WITH_VM_ATTRIBUTE = $"{BASE_LIB_NAMESPACE}.Navigation.ConnectWithViewModelAttribute`2";
 
     public void Initialize(IncrementalGeneratorInitializationContext context)

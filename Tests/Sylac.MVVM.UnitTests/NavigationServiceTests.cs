@@ -1,6 +1,7 @@
 using NSubstitute;
-using Sylac.MVVM.Navigation;
-using Sylac.MVVM.Navigation.Abstractions;
+using Sylac.MVVM.Core;
+using Sylac.MVVM.Core.Navigation;
+using Sylac.MVVM.Core.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
@@ -121,14 +122,16 @@ namespace Sylac.MVVM.UnitTests
         private record TestViewModelParameters(string TestString) : IViewModelParameters;
         private class TestViewModel : IViewModel<TestViewModelParameters>
         {
-            public void Initialize(TestViewModelParameters parameter) => Observable.Return(Unit.Default);
+            public TestViewModelParameters? Parameters { get; }
+            public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
             public void OnAppearing() { }
         }
 
         private record TestViewModelParameters2(string TestString) : IViewModelParameters;
         private class TestViewModel2 : IViewModel<TestViewModelParameters2>
         {
-            public void Initialize(TestViewModelParameters2 parameter) => Observable.Return(Unit.Default);
+            public TestViewModelParameters2? Parameters { get; }
+            public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
             public void OnAppearing() { }
         }
 

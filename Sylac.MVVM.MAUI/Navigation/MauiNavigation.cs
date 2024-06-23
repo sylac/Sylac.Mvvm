@@ -1,4 +1,4 @@
-﻿using Sylac.MVVM.Navigation.Abstractions;
+﻿using Sylac.MVVM.Core.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Threading.Tasks;
 
