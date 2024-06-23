@@ -19,13 +19,6 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
-          
-      - name: Display directory structure for debugging
-        run: |
-          pwd
-          ls -la
-          ls -la Sylac.Mvvm.Core
-
       - name: Install dependencies
         run: dotnet restore
 
