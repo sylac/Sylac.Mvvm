@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using Sylac.Mvvm.Core.Navigation.Abstractions;
+using Sylac.Mvvm.Navigation.Abstractions;
 using System.Reactive;
 
 namespace Sylac.Mvvm.Example.ViewModels

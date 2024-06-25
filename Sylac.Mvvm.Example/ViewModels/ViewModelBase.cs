@@ -1,5 +1,4 @@
 ﻿using ReactiveUI;
-using Sylac.Mvvm.Core;
 
 namespace Sylac.Mvvm.Example.ViewModels
 {

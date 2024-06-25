@@ -1,5 +1,4 @@
-﻿using Sylac.Mvvm.Core;
-using Sylac.Mvvm.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Navigation.Abstractions;
 
 namespace Sylac.Mvvm.Maui.Controls;
 

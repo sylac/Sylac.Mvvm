@@ -1,6 +1,6 @@
 ﻿using System.Reactive;
 
-namespace Sylac.Mvvm.Core.Navigation.Abstractions
+namespace Sylac.Mvvm.Navigation.Abstractions
 {
     public interface IPlatformNavigation
     {

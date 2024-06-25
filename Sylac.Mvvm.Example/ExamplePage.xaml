@@ -8,5 +8,6 @@
     <VerticalStackLayout>
         <Label HorizontalOptions="Center" Text="Entered text is:" VerticalOptions="Center" />
         <Label HorizontalOptions="Center" Text="{Binding EnteredText}" VerticalOptions="Center" />
+        <Button Command="{Binding ShowSecondExamplePageCommand}" Text="Show second example page" />
     </VerticalStackLayout>
 </sylac:NavigationablePage>

@@ -5,20 +5,39 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>12</LangVersion>
+
+    <!-- SOURCE GENERATOR IMPORTANT SETTINGS -->
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-    <OutputItemType>Analyzer</OutputItemType>
-    <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    <IsRoslynComponent>true</IsRoslynComponent>
+    <RootNamespace>Sylac.Mvvm.Generators</RootNamespace>
+    
+    <!--OutputItemType>Analyzer</OutputItemType>
+    <ReferenceOutputAssembly>false</ReferenceOutputAssembly>-->
+    
+    <!-- NUGET PACKAGE SETTINGS -->
+    <IsPackable>true</IsPackable>
+    <PackageId>Sylac.Mvvm.Generators</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Sylwester Łach</Authors>
+    <RepositoryUrl>https://github.com/sylac/Sylac.Mvvm</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>nuget, packaging, generator, example</PackageTags>
+    <!--<GeneratePackageOnBuild>True</GeneratePackageOnBuild>-->
   </PropertyGroup>
 
-  <PropertyGroup>
+  <!--<PropertyGroup>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <IsPackable>false</IsPackable>
     <OutputType>Library</OutputType>
-    <IsRoslynComponent>true</IsRoslynComponent>
-  </PropertyGroup>
+  </PropertyGroup>-->
     
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.9.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
   </ItemGroup>
 </Project>

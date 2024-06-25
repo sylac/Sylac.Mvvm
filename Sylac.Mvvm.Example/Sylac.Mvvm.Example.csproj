@@ -55,14 +55,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Sylac.Mvvm.Generators\Sylac.Mvvm.Generators.csproj" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
 	  <ProjectReference Include="..\Sylac.Mvvm.Maui\Sylac.Mvvm.Maui.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="ExamplePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

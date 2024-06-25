@@ -1,8 +1,8 @@
-﻿using Sylac.Mvvm.Core.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Linq;
 
-namespace Sylac.Mvvm.Core.Navigation;
+namespace Sylac.Mvvm.Navigation;
 
 public class NavigationService(IPlatformNavigation platformNavigation) : INavigationService
 {
@@ -15,6 +15,22 @@ public class NavigationService(IPlatformNavigation platformNavigation) : INaviga
         where TParams : IViewModelParameters
     {
         if (ViewModelsRegistry.TryAdd(typeof(TViewModel), (typeof(TPage).Name, typeof(TParams))))
+        {
+            _platformNavigation.RegisterPage<TPage>();
+        }
+    }
+
+    public void RegisterNavigationView<TPage, TViewModel>()
+        where TPage : INavigationablePage
+        where TViewModel : IViewModel<IViewModelParameters>
+    {
+        var parametersType = typeof(TViewModel)
+            .FindInterfaces((type, _) => type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IViewModel<>), null)
+            .First()
+            .GetGenericArguments()
+            .First();
+
+        if (ViewModelsRegistry.TryAdd(typeof(TViewModel), (typeof(TPage).Name, parametersType)))
         {
             _platformNavigation.RegisterPage<TPage>();
         }

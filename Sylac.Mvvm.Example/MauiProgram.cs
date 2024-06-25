@@ -32,8 +32,8 @@ namespace Sylac.Mvvm.Example
             return services
                 .AddTransient<MainPage>()
                 .AddTransient<MainPageViewModel>()
-                .AddTransient<ExamplePage>()
-                .AddTransient<ExamplePageViewModel>();
+                .RegisterMvvmPage<ExamplePage, ExamplePageViewModel>()
+                .RegisterMvvmPage<SecondExamplePage, SecondExamplePageViewModel>();
         }
     }
 }

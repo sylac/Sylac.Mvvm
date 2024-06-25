@@ -1,5 +1,8 @@
-﻿using ReactiveUI.Fody.Helpers;
-using Sylac.Mvvm.Core;
+﻿using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using Sylac.Mvvm.Navigation.Abstractions;
+using System.Reactive;
+using System.Reactive.Linq;
 
 namespace Sylac.Mvvm.Example.ViewModels
 {
@@ -11,10 +14,17 @@ namespace Sylac.Mvvm.Example.ViewModels
     /// <summary>
     /// Implementation of the example page view model.
     /// </summary>
-    public sealed class ExamplePageViewModel : ViewModelBase<ExamplePageViewModelParameters>
+    public sealed class ExamplePageViewModel(INavigationService navigationService)
+        : ViewModelBase<ExamplePageViewModelParameters>
     {
+        private readonly INavigationService navigationService = navigationService;
+
         [Reactive]
         public string EnteredText { get; set; } = "";
+
+        public ReactiveCommand<Unit, Unit> ShowSecondExamplePageCommand { get; } = ReactiveCommand.CreateFromObservable(() => navigationService
+                .NavigateTo<SecondExamplePageViewModel, SecondExamplePageViewModelParameters>(new())
+                .Catch((Exception exception) => Observable.Return(Unit.Default)));
 
         public override void OnLoadedParameters(ExamplePageViewModelParameters parameters)
         {

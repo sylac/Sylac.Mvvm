@@ -1,6 +1,6 @@
-using Sylac.Mvvm.Core.Navigation;
 using Sylac.Mvvm.Example.ViewModels;
 using Sylac.Mvvm.Maui.Controls;
+using Sylac.Mvvm.Navigation;
 
 namespace Sylac.Mvvm.Example;
 
