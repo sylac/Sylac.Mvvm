@@ -11,7 +11,7 @@
     <!-- NUGET PACKAGE SETTINGS -->
 		<IsPackable>true</IsPackable>
 		<PackageId>Sylac.Mvvm.Maui</PackageId>
-		<Version>1.0.0</Version>
+		<Version>0.1.0</Version>
     <Authors>Sylwester Łach</Authors>
     <RepositoryUrl>https://github.com/sylac/Sylac.Mvvm</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
