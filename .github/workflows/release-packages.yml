@@ -34,4 +34,4 @@ jobs:
            run: dotnet pack -c Release --no-build --output nupkgs
 
          - name: Publish
-           run: dotnet nuget push -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} nupkgs/*.nupkg
+           run: dotnet nuget push nupkgs/ -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} 
