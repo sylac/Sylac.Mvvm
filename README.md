@@ -1,3 +1,5 @@
+[![build](https://github.com/sylac/Sylac.Mvvm/actions/workflows/build-and-test.yml/badge.svg)](https://github.com/sylac/Sylac.Mvvm/actions/workflows/build-and-test.yml)
+
 # Sylac.Mvvm
 A .NET Mvvm framework with infrastructure to streamline the applications development.
 

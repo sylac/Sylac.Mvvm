@@ -35,6 +35,10 @@ namespace Sylac.Mvvm.UnitTests
         private class ExamplePageViewModel : IViewModel<ExamplePageParameters>
         {
             public void Initialize(IViewModelParameters parameter) { }
+            public void OnNavigatedFrom() { }
+            public void OnNavigatedTo() { }
+            public void OnNavigatingFrom() { }
+            public void OnNavigatingTo() { }
         }
     }
 }
