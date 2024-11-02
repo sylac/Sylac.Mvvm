@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sylac.Mvvm.Example", "Sylac.Mvvm.Example.csproj", "{6126C223-5F10-447D-B601-1FA3078C5557}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylac.Mvvm.Example", "Sylac.Mvvm.Example.csproj", "{6126C223-5F10-447D-B601-1FA3078C5557}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sylac.Mvvm", "Sylac.Mvvm", "{C5619D72-FDBE-42DA-B49D-181D27BBDE5B}"
 EndProject
@@ -16,6 +16,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8EE303D0-685B-4F99-8807-158ACB52A0DF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sylac.Mvvm.UnitTests", "..\Tests\Sylac.Mvvm.UnitTests\Sylac.Mvvm.UnitTests.csproj", "{63AD1711-6D88-4EE2-BD8F-05C7F934A393}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{85CDAD12-C70E-46C4-BC0B-1673EBFC6792}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\ci-cd.yml = ..\.github\workflows\ci-cd.yml
+		..\.github\workflows\release-packages.yml = ..\.github\workflows\release-packages.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

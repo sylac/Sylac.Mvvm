@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell x:Class="Sylac.Mvvm.Example.AppShell"
-       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Sylac.Mvvm.Example"
-       Title="Sylac.Mvvm.Example"
-       Shell.FlyoutBehavior="Disabled">
+<Shell
+    x:Class="Sylac.Mvvm.Example.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Sylac.Mvvm.Example.Pages"
+    Title="Sylac.Mvvm.Example"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" />
+    <TabBar>
+        <Tab Title="Home">
+            <ShellContent Title="Home" ContentTemplate="{DataTemplate pages:MainPage}" />
+        </Tab>
+        <Tab Title="ShellNavigationPage">
+            <ShellContent Title="Second Tab" ContentTemplate="{DataTemplate pages:ShellTabPage}" />
+        </Tab>
+    </TabBar>
 
 </Shell>

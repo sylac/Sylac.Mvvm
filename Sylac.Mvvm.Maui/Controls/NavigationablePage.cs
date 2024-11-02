@@ -2,7 +2,7 @@
 
 namespace Sylac.Mvvm.Maui.Controls;
 
-public class NavigationablePage : ContentPage, INavigationablePage, IQueryAttributable
+public partial class NavigationablePage : ContentPage, INavigationablePage, IQueryAttributable
 {
     public IViewModel<IViewModelParameters> ViewModel { get; private set; }
 
@@ -22,9 +22,27 @@ public class NavigationablePage : ContentPage, INavigationablePage, IQueryAttrib
         }
     }
 
+    protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
+    {
+        base.OnNavigatedFrom(args);
+        ViewModel.OnNavigatedFrom();
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+        ViewModel.OnNavigatedTo();
+    }
+
+    protected override void OnNavigatingFrom(NavigatingFromEventArgs args)
+    {
+        base.OnNavigatingFrom(args);
+        ViewModel.OnNavigatingFrom();
+    }
+
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        ViewModel.OnAppearing();
+        ViewModel.OnNavigatingTo();
     }
 }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<sylac:NavigationablePage x:Class="Sylac.Mvvm.Example.ExamplePage"
+<sylac:NavigationablePage x:Class="Sylac.Mvvm.Example.Pages.SecondExamplePage"
                           xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sylac="clr-namespace:Sylac.Mvvm.Maui.Controls;assembly=Sylac.Mvvm.Maui"
                           xmlns:viewModels="clr-namespace:Sylac.Mvvm.Example.ViewModels"
-                          x:DataType="viewModels:ExamplePageViewModel">
+                          x:DataType="viewModels:SecondExamplePageViewModel">
     <VerticalStackLayout>
-        <Label HorizontalOptions="Center" Text="Entered text is:" VerticalOptions="Center" />
-        <Label HorizontalOptions="Center" Text="{Binding EnteredText}" VerticalOptions="Center" />
-        <Button Command="{Binding ShowSecondExamplePageCommand}" Text="Show second example page" />
+        <Label HorizontalOptions="Center" Text="Welcome to .NET MAUI!" VerticalOptions="Center" />
     </VerticalStackLayout>
 </sylac:NavigationablePage>
