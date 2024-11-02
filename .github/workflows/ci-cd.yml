@@ -3,14 +3,14 @@ name: Build and Test
 on:
   push:
     branches: [ "main", "develop"]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "main", "develop"]
 
 jobs:
-  build:
-    name: Build and Test
+  setup:
     runs-on: windows-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -26,6 +26,14 @@ jobs:
       - name: Install dependencies
         run: dotnet restore
 
+  build:
+    name: Build and Test
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Build
         run: dotnet build -c Release
 
@@ -38,3 +46,21 @@ jobs:
         with:
           name: TestResults
           path: TestResults.trx
+
+  release:
+    name: Release packages
+    runs-on: windows-latest
+    needs: [setup, build]
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: dotnet build -c Release
+
+      - name: Package
+        run: dotnet pack -c Release --no-build --output nupkgs
+
+      - name: Publish
+        run: dotnet nuget push nupkgs/ -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
