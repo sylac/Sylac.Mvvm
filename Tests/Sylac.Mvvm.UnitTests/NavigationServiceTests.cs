@@ -141,7 +141,11 @@ namespace Sylac.Mvvm.UnitTests
         {
             public TestViewModelParameters? Parameters { get; }
             public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
-            public void OnAppearing() { }
+
+            public void OnNavigatedFrom() { }
+            public void OnNavigatedTo() { }
+            public void OnNavigatingFrom() { }
+            public void OnNavigatingTo() { }
         }
 
         private record TestViewModelParameters2(string TestString) : IViewModelParameters;
@@ -149,7 +153,11 @@ namespace Sylac.Mvvm.UnitTests
         {
             public TestViewModelParameters2? Parameters { get; }
             public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
-            public void OnAppearing() { }
+
+            public void OnNavigatedFrom() { }
+            public void OnNavigatedTo() { }
+            public void OnNavigatingFrom() { }
+            public void OnNavigatingTo() { }
         }
 
         private class TestPage : INavigationablePage

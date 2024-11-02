@@ -2,7 +2,10 @@
 
 public interface IViewModel
 {
-    virtual void OnAppearing() { }
+    void OnNavigatingTo();
+    void OnNavigatingFrom() { }
+    void OnNavigatedTo();
+    void OnNavigatedFrom();
 }
 
 public interface IViewModel<out TParam> : IViewModel

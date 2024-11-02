@@ -12,11 +12,11 @@
 		<IsPackable>true</IsPackable>
 		<PackageId>Sylac.Mvvm.Maui</PackageId>
 		<Version>0.1.0</Version>
-    <Authors>Sylwester Łach</Authors>
-    <RepositoryUrl>https://github.com/sylac/Sylac.Mvvm</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>nuget, packaging, generator, example</PackageTags>
+		<Authors>Sylwester Łach</Authors>
+		<RepositoryUrl>https://github.com/sylac/Sylac.Mvvm</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageTags>nuget, packaging, generator, example</PackageTags>
     
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
@@ -27,8 +27,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
 	</ItemGroup>
 
 	<ItemGroup>
