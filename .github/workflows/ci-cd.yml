@@ -62,5 +62,26 @@ jobs:
       - name: Package
         run: dotnet pack -c Release --no-build --output nupkgs
 
-      - name: Publish
-        run: dotnet nuget push nupkgs/ -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+      - name: Publish Mvvm.Core
+        if: endsWith(github.ref, 'mvvm-core')
+        shell: pwsh
+        run: |
+            $file = Get-ChildItem -Path nupkgs -Filter "Sylac.Mvvm.Maui*.nupkg" | Select-Object -First 1
+            if ($file) { dotnet nuget push $file.FullName -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} || true } 
+            else { Write-Output "No package file found for Mvvm.Core" }
+
+      - name: Publish Mvvm.Generators
+        if: endsWith(github.ref, 'mvvm-generators')
+        shell: pwsh
+        run: |
+            $file = Get-ChildItem -Path nupkgs -Filter "Sylac.Mvvm.Generators*.nupkg" | Select-Object -First 1
+            if ($file) { dotnet nuget push $file.FullName -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} || true } 
+            else { Write-Output "No package file found for Mvvm.Generators" }
+
+      - name: Publish Mvvm.Maui
+        if: endsWith(github.ref, 'mvvm-maui')
+        shell: pwsh
+        run: |
+            $file = Get-ChildItem -Path nupkgs -Filter "Sylac.Mvvm.Maui*.nupkg" | Select-Object -First 1
+            if ($file) { dotnet nuget push $file.FullName -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} || true } 
+            else { Write-Output "No package file found for Mvvm.Maui" }
