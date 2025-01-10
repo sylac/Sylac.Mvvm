@@ -1,8 +1,9 @@
-﻿using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Sylac.Mvvm.Navigation.Abstractions;
-using System.Reactive;
+﻿using System.Reactive;
 using System.Reactive.Linq;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using Sylac.Mvvm.Abstraction;
+using Sylac.Mvvm.Navigation.Abstractions;
 
 namespace Sylac.Mvvm.Example.ViewModels;
 
@@ -20,7 +21,7 @@ public sealed class ExamplePageViewModel
     private INavigationService NavigationService { get; }
 
     [Reactive]
-    public string EnteredText { get; set; } = "";
+    public string EnteredText { get; set; } = string.Empty;
 
     public ReactiveCommand<Unit, Unit> ShowSecondExamplePageCommand { get; }
 
@@ -33,4 +34,5 @@ public sealed class ExamplePageViewModel
     }
 
     public override void OnLoadedParameters(ExamplePageViewModelParameters parameters) => EnteredText = parameters.InitialText;
+    public override void OnNavigatedTo() => EnteredText = "Navigated to ExamplePageViewModel";
 }

@@ -1,20 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 
     <!-- NUGET PACKAGE SETTINGS -->
 		<IsPackable>true</IsPackable>
 		<PackageId>Sylac.Mvvm.Maui</PackageId>
-		<Version>0.2.0</Version>
+		<Version>0.3.0</Version>
 		<Authors>Sylwester Łach</Authors>
 		<RepositoryUrl>https://github.com/sylac/Sylac.Mvvm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageTags>nuget, packaging, generator, example</PackageTags>
     
@@ -27,9 +29,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.92" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.92" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.22" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.22" />
 	</ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Sylac.Mvvm.Core\Sylac.Mvvm.Core.csproj" />

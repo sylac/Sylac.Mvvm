@@ -1,12 +1,13 @@
-﻿using Sylac.Mvvm.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Abstraction;
+using Sylac.Mvvm.Navigation.Abstractions;
 
 namespace Sylac.Mvvm.Maui.Controls;
 
-public partial class NavigationablePage : ContentPage, INavigationablePage, IQueryAttributable
+public partial class NavigablePage : ContentPage, INavigationablePage, IQueryAttributable
 {
     public IViewModel<IViewModelParameters> ViewModel { get; private set; }
 
-    public NavigationablePage(IViewModel<IViewModelParameters> viewModel)
+    public NavigablePage(IViewModel<IViewModelParameters> viewModel)
     {
         ViewModel = viewModel;
         BindingContext = viewModel;

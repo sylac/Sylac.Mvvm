@@ -1,10 +1,11 @@
-﻿using Sylac.Mvvm.Navigation.Abstractions;
+﻿using Sylac.Mvvm.Abstraction;
+using Sylac.Mvvm.Navigation.Abstractions;
 using System.Reactive;
 using System.Reactive.Linq;
 
 namespace Sylac.Mvvm.Navigation;
 
-public class NavigationService(IPlatformNavigation platformNavigation) : INavigationService
+public sealed class NavigationService(IPlatformNavigation platformNavigation) : INavigationService
 {
     private readonly IPlatformNavigation _platformNavigation = platformNavigation;
     internal static Dictionary<Type, (string Page, Type ParametersType)> ViewModelsRegistry { get; } = [];
@@ -41,33 +42,18 @@ public class NavigationService(IPlatformNavigation platformNavigation) : INaviga
         where TParams : IViewModelParameters
     {
         return Observable.Return(ViewModelsRegistry.GetValueOrDefault(typeof(TViewModel)))
-            .Where(result =>
-                result.Page != default &&
-                result.ParametersType != default)
+            .Where(result => result != default)
             .SelectMany(result =>
-            {
                 // is type check needed? Is it possible to pass a different type?
-                if (parameters.GetType() != result.ParametersType)
-                {
-                    return Observable.Throw<Unit>(new ArgumentException("Invalid parameters type"));
-                }
-
-                return _platformNavigation.GoTo(result.Page, new Dictionary<string, object>() { { INavigationablePage.ParametersKey, parameters } });
-            })
+                parameters.GetType() != result.ParametersType
+                    ? Observable.Throw<Unit>(new ArgumentException("Invalid parameters type"))
+                    : _platformNavigation.GoTo(result.Page, new Dictionary<string, object>() { { INavigationablePage.ParametersKey, parameters } }))
             .IsEmpty()
-            .SelectMany(isEmpty =>
-            {
-                if (isEmpty)
-                {
-                    return Observable.Throw<Unit>(new ArgumentException("Error navigating to page"));
-                }
-                return Observable.Return(Unit.Default);
-            });
+            .SelectMany(isEmpty => isEmpty
+                ? Observable.Throw<Unit>(new ArgumentException("Error navigating to page"))
+                : Observable.Return(Unit.Default));
     }
 
-    public IObservable<Unit> NavigateBack()
-    {
-        return _platformNavigation.GoTo("..");
-    }
+    public IObservable<Unit> NavigateBack() => _platformNavigation.GoTo("..");
 }
 
