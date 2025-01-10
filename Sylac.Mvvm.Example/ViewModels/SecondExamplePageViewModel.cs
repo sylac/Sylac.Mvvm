@@ -1,4 +1,6 @@
-﻿namespace Sylac.Mvvm.Example.ViewModels
+﻿using Sylac.Mvvm.Abstraction;
+
+namespace Sylac.Mvvm.Example.ViewModels
 {
     /// <summary>
     /// The parameters required to initialize the <see cref="ExamplePageViewModel"/>.
@@ -11,6 +13,5 @@
     public sealed class SecondExamplePageViewModel
         : ViewModelBase<SecondExamplePageViewModelParameters>
     {
-        public override void OnLoadedParameters(SecondExamplePageViewModelParameters parameters) { }
     }
 }

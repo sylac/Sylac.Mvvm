@@ -1,10 +1,12 @@
 ﻿using ReactiveUI;
+using Sylac.Mvvm.Abstraction;
 
 namespace Sylac.Mvvm.Example.ViewModels;
 
 public abstract class ViewModelBase<TViewModelParameters> : ReactiveObject, IViewModel<TViewModelParameters>
     where TViewModelParameters : IViewModelParameters
 {
+    /// <inheritdoc cref="IViewModel{TParam}.Initialize"/>
     public void Initialize(IViewModelParameters parameter)
     {
         if (parameter is TViewModelParameters viewModelParameters)
@@ -15,23 +17,15 @@ public abstract class ViewModelBase<TViewModelParameters> : ReactiveObject, IVie
 
     public virtual void OnLoadedParameters(TViewModelParameters parameters) { }
 
-    /// <summary>
-    /// Called when the navigation from the view model is completed.
-    /// </summary>
+    /// <inheritdoc cref="IViewModel.OnNavigatedFrom"/>
     public virtual void OnNavigatedFrom() { }
 
-    /// <summary>
-    /// Called when the navigation to the view model is completed.
-    /// </summary>
+    /// <inheritdoc cref="IViewModel.OnNavigatedTo"/>
     public virtual void OnNavigatedTo() { }
 
-    /// <summary>
-    /// Called when the navigation from the view model is initiated.
-    /// </summary>
+    /// <inheritdoc cref="IViewModel.OnNavigatingFrom"/>
     public virtual void OnNavigatingFrom() { }
 
-    /// <summary>
-    /// Called when the navigation to the view model is initiated.
-    /// </summary>
+    /// <inheritdoc cref="IViewModel.OnNavigatingTo"/>
     public virtual void OnNavigatingTo() { }
 }

@@ -1,4 +1,5 @@
 using NSubstitute;
+using Sylac.Mvvm.Abstraction;
 using Sylac.Mvvm.Navigation;
 using Sylac.Mvvm.Navigation.Abstractions;
 using System.Reactive;
@@ -55,7 +56,7 @@ namespace Sylac.Mvvm.UnitTests
 
             // Act
             var result = await navigationService
-                .NavigateTo<TestViewModel, TestViewModelParameters>(new TestViewModelParameters("TestString"))
+                .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
                 .ToTask();
 
             // Assert
@@ -77,7 +78,7 @@ namespace Sylac.Mvvm.UnitTests
 
             // Act & Assert
             await Assert.ThrowsAsync<ArgumentException>(() => navigationService
-                    .NavigateTo<TestViewModel2, TestViewModelParameters2>(new TestViewModelParameters2("TestString"))
+                    .NavigateTo<TestViewModel2, TestViewModelParameters2>(new("TestString"))
                     .ToTask());
 
             NavigationService.ViewModelsRegistry.Clear();
@@ -97,7 +98,7 @@ namespace Sylac.Mvvm.UnitTests
 
             // Act & Assert
             await Assert.ThrowsAsync<ArgumentException>(() => navigationService
-                    .NavigateTo<TestViewModel, TestViewModelParameters>(new TestViewModelParameters("TestString"))
+                    .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
                     .ToTask());
 
             NavigationService.ViewModelsRegistry.Clear();
@@ -115,7 +116,7 @@ namespace Sylac.Mvvm.UnitTests
 
             // Act & Assert
             await Assert.ThrowsAsync<Exception>(() => navigationService
-                    .NavigateTo<TestViewModel, TestViewModelParameters>(new TestViewModelParameters("TestString"))
+                    .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
                     .ToTask());
 
             NavigationService.ViewModelsRegistry.Clear();
@@ -139,24 +140,26 @@ namespace Sylac.Mvvm.UnitTests
         private record TestViewModelParameters(string TestString) : IViewModelParameters;
         private class TestViewModel : IViewModel<TestViewModelParameters>
         {
-            public TestViewModelParameters? Parameters { get; }
-            public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
+            public TestViewModelParameters? Parameters { get; } = null;
 
             public void OnNavigatedFrom() { }
             public void OnNavigatedTo() { }
             public void OnNavigatingFrom() { }
+            public void Initialize(IViewModelParameters parameter) => throw new NotImplementedException();
+
             public void OnNavigatingTo() { }
         }
 
         private record TestViewModelParameters2(string TestString) : IViewModelParameters;
         private class TestViewModel2 : IViewModel<TestViewModelParameters2>
         {
-            public TestViewModelParameters2? Parameters { get; }
-            public void Initialize(IViewModelParameters parameter) => Observable.Return(Unit.Default);
+            public TestViewModelParameters2? Parameters { get; } = null;
 
             public void OnNavigatedFrom() { }
             public void OnNavigatedTo() { }
             public void OnNavigatingFrom() { }
+            public void Initialize(IViewModelParameters parameter) => throw new NotImplementedException();
+
             public void OnNavigatingTo() { }
         }
 

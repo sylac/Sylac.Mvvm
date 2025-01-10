@@ -1,4 +1,5 @@
-﻿using System.Reactive;
+﻿using Sylac.Mvvm.Abstraction;
+using System.Reactive;
 
 namespace Sylac.Mvvm.Navigation.Abstractions;
 
