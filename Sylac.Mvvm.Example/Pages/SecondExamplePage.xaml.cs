@@ -3,7 +3,7 @@ using Sylac.Mvvm.Maui.Controls;
 
 namespace Sylac.Mvvm.Example.Pages;
 
-public partial class SecondExamplePage : NavigationablePage
+public partial class SecondExamplePage : NavigablePage
 {
     public SecondExamplePage(SecondExamplePageViewModel pageViewModel)
         : base(pageViewModel)

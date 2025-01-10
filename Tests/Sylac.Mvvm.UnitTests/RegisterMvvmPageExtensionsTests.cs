@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
+using Sylac.Mvvm.Abstraction;
 using Sylac.Mvvm.Navigation.Abstractions;
 
 namespace Sylac.Mvvm.UnitTests
@@ -34,10 +35,12 @@ namespace Sylac.Mvvm.UnitTests
         private record ExamplePageParameters : IViewModelParameters;
         private class ExamplePageViewModel : IViewModel<ExamplePageParameters>
         {
-            public void Initialize(IViewModelParameters parameter) { }
+            public void OnLoadedParameters(IViewModelParameters parameters) { }
             public void OnNavigatedFrom() { }
             public void OnNavigatedTo() { }
             public void OnNavigatingFrom() { }
+            public void Initialize(IViewModelParameters parameter) => throw new NotImplementedException();
+
             public void OnNavigatingTo() { }
         }
     }

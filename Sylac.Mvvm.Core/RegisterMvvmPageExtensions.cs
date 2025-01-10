@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Sylac.Mvvm.Abstraction;
 using Sylac.Mvvm.Navigation.Abstractions;
 
 namespace Sylac.Mvvm;
@@ -14,10 +15,9 @@ public static class RegisterMvvmPageExtensions
     {
         services.Add(new(typeof(TPage), null, typeof(TPage), pageLifetime));
         services.Add(new(typeof(TViewModel), null, typeof(TViewModel), viewModelLifetime));
-
-        using var serviceProvider = services.BuildServiceProvider();
-        var navigetionService = serviceProvider.GetRequiredService<INavigationService>();
-        navigetionService.RegisterNavigationView<TPage, TViewModel>();
+        services.BuildServiceProvider()
+            .GetRequiredService<INavigationService>()
+            .RegisterNavigationView<TPage, TViewModel>();
 
         return services;
     }
