@@ -42,6 +42,7 @@ public sealed class NavigationService(IPlatformNavigation platformNavigation) : 
         where TParams : IViewModelParameters
     {
         return Observable.Return(ViewModelsRegistry.GetValueOrDefault(typeof(TViewModel)))
+            .SubscribeOn(_platformNavigation.SynchronizationContext)
             .Where(result => result != default)
             .SelectMany(result =>
                 // is type check needed? Is it possible to pass a different type?
@@ -54,6 +55,8 @@ public sealed class NavigationService(IPlatformNavigation platformNavigation) : 
                 : Observable.Return(Unit.Default));
     }
 
-    public IObservable<Unit> NavigateBack() => _platformNavigation.GoTo("..");
+    public IObservable<Unit> NavigateBack() => Observable.Return(Unit.Default)
+        .SubscribeOn(_platformNavigation.SynchronizationContext)
+        .SelectMany(_ => _platformNavigation.GoBack());
 }
 
