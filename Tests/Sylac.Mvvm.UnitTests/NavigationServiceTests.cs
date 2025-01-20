@@ -54,6 +54,8 @@ namespace Sylac.Mvvm.UnitTests
             var navigationService = new NavigationService(shellWrapper);
             navigationService.RegisterNavigationView<TestPage, TestViewModel, TestViewModelParameters>();
 
+            _ = shellWrapper.SynchronizationContext.Returns(SynchronizationContext.Current);
+
             // Act
             var result = await navigationService
                 .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
@@ -61,8 +63,8 @@ namespace Sylac.Mvvm.UnitTests
 
             // Assert
             Assert.Equal(Unit.Default, result);
-            await shellWrapper
-                .Received()
+            _ = await shellWrapper
+                .Received(1)
                 .GoTo(nameof(TestPage), Arg.Any<Dictionary<string, object>>())
                 .ToTask();
 
@@ -76,8 +78,10 @@ namespace Sylac.Mvvm.UnitTests
             var shellWrapper = Substitute.For<IPlatformNavigation>();
             var navigationService = new NavigationService(shellWrapper);
 
+            _ = shellWrapper.SynchronizationContext.Returns(SynchronizationContext.Current);
+
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => navigationService
+            _ = await Assert.ThrowsAsync<ArgumentException>(() => navigationService
                     .NavigateTo<TestViewModel2, TestViewModelParameters2>(new("TestString"))
                     .ToTask());
 
@@ -96,8 +100,10 @@ namespace Sylac.Mvvm.UnitTests
                 Assert.Fail("Failed to add TestViewModel to ViewModelsRegistry");
             }
 
+            _ = shellWrapper.SynchronizationContext.Returns(SynchronizationContext.Current);
+
             // Act & Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => navigationService
+            _ = await Assert.ThrowsAsync<ArgumentException>(() => navigationService
                     .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
                     .ToTask());
 
@@ -111,11 +117,12 @@ namespace Sylac.Mvvm.UnitTests
             var navigationService = new NavigationService(shellWrapper);
             navigationService.RegisterNavigationView<TestPage, TestViewModel, TestViewModelParameters>();
 
-            shellWrapper.GoTo(nameof(TestPage), Arg.Any<Dictionary<string, object>>())
+            _ = shellWrapper.SynchronizationContext.Returns(SynchronizationContext.Current);
+            _ = shellWrapper.GoTo(nameof(TestPage), Arg.Any<Dictionary<string, object>>())
                 .Returns(Observable.Throw<Unit>(new Exception("Error navigating to page")));
 
             // Act & Assert
-            await Assert.ThrowsAsync<Exception>(() => navigationService
+            _ = await Assert.ThrowsAsync<Exception>(() => navigationService
                     .NavigateTo<TestViewModel, TestViewModelParameters>(new("TestString"))
                     .ToTask());
 
@@ -129,12 +136,14 @@ namespace Sylac.Mvvm.UnitTests
             var shellWrapper = Substitute.For<IPlatformNavigation>();
             var navigationService = new NavigationService(shellWrapper);
 
+            _ = shellWrapper.SynchronizationContext.Returns(SynchronizationContext.Current);
+
             // Act
             var result = await navigationService.NavigateBack().ToTask();
 
             // Assert
             Assert.Equal(Unit.Default, result);
-            await shellWrapper.Received().GoTo("..").ToTask();
+            _ = await shellWrapper.Received(1).GoBack().ToTask();
         }
 
         private record TestViewModelParameters(string TestString) : IViewModelParameters;
